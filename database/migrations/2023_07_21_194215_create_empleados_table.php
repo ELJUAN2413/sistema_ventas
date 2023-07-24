@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',40);
             $table->string('apellido',40);
-            $table->integer('cedula',11);
+            $table->integer('cedula')->nullable(false);
             $table->string('correo',100);
             $table->string('telefono',15);
             $table->string('direccion',60);
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->bigInteger('ciudad_id')->unsigned();
             $table->bigInteger('pais_id')->unsigned();
             $table->bigInteger('departamento_id')->unsigned();
-            
+
             $table->foreign('ciudad_id')->references('id')->on('ciudad')->ondelete('cascade');
             $table->foreign('pais_id')->references('id')->on('pais')->ondelete('cascade');
             $table->foreign('departamento_id')->references('id')->on('departamento')->ondelete('cascade');
