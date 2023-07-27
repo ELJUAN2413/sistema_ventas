@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use app\http\Controllers\CustomAuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 
 route::get('dashboard', [CustomAuthController::class, 'dashboard']);
@@ -12,19 +14,17 @@ route::post('custom-registration',[CustomAuthController::class, 'customregistrat
 route::get('sigout',[CustomAuthController::class, 'sigout'])->name('sigout');
 
 
+//muestra categorias
+route::get('/categories',[CategoryController::class,'index'])
+->name('categories.index');
 
+//formulario categorias
+route::get('/categories/create', [CategoryController::class,'create'])
+->name('categories.create');
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//datos formulario categorias
+route::post('/categories/create',[CategoryController::class,'store'])
+->name('categoria.create');
 
 Route::get('/', function () {
     return view('welcome');
