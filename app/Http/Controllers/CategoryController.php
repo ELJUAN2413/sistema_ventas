@@ -17,12 +17,12 @@ class CategoryController extends Controller
     {
         return view('categories.create');
     }
-    
+
     public function store (request $request)
     {
         $date= $request->validate([
-            'name'-> 'required|max:255',
-            'description'-> 'required|mas:255'
+            'name'=> 'required|max:255',
+            'description'=> 'required|mas:255'
         ]);
 
         category::create($data);
@@ -37,8 +37,8 @@ class CategoryController extends Controller
     public function update(category $category, request $request)
     {
         $data = $request->validate([
-            'name'-> 'required|max::255',
-            'description'->'required|mas::255'
+            'name'=> 'required|max::255',
+            'description'=>'required|mas::255'
         ]);
         $category->update($data);
 

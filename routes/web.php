@@ -24,7 +24,49 @@ route::get('/categories/create', [CategoryController::class,'create'])
 
 //datos formulario categorias
 route::post('/categories/create',[CategoryController::class,'store'])
-->name('categoria.create');
+->name('categories.create');
+
+//muestra formulario editar una categoria
+route::get('/categories/edit/{category}',[CategoryController::class,'edit'])
+->name('categories.edit');
+
+//recibe formulario editar una categoria
+route::post('/categories/edit/{category}',[CategoryController::class,'update'])
+->name('categories.edit');
+
+//elimina una categoria por el id
+route::post('/categories/delete/{category}',[CategoryController::class,'destroy'])
+->name('categories.delete');
+
+//1 productos
+route::get('/products',[ProductController::class,'index'])
+->name('products.index');
+
+//
+route::get('/products/create', [ProductController::class,'create'])
+->name('products.create');
+
+//
+route::post('/products/create',[ProductController::class,'store'])
+->name('products.create');
+
+//
+route::get('/products/edit/{category}',[ProductController::class,'edit'])
+->name('products.edit');
+
+//
+route::post('/products/edit/{product}',[ProductController::class,'update'])
+->name('products.edit');
+
+//
+route::post('/products/delete/{product}',[ProductController::class,'destroy'])
+->name('products.delete');
+
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
