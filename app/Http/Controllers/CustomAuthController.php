@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Hash;
 use session;
-use app\Models\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Login;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -19,11 +20,11 @@ class CustomAuthController extends Controller
     public function customlogin(request $request)
     {
         $request->validate([
-            "email"->'required',
-            "passsword"->'required',
+            "email"=>'required',
+            "passsword"=>'required',
         ]);
 
-        $credentials=$request->only(keys:'email', 'password');
+        $credentials=$request->only(['email', 'password']);
         if (auth::attempt($credentials)){
             return redirect()->intended('dashboard')
             ->withsuccess('bienvenidos');
@@ -36,30 +37,30 @@ class CustomAuthController extends Controller
     }
     public function customregistration(request $request)
     {
-        $request-validate([
-            "name"->"required",
-            "email"->"required|email|unique:users",
-            "password"->"required|min:6",
+        $request->validate([
+            'name' => "required",
+            'email' => "required|email|unique:users",
+            'password' => "required|min:6",
         ]);
 
         $data= $request->all();
         $user= $this->create($data);
 
-        auth::login($user);
-        return redirect(to:"dashboard")->withsuccess(te has registrado satisfactoriamente);
+        Auth::Login($user);
+        return redirect("dashboard")->withsuccess("te has registrado satisfactoriamente");
     }
     public function create(array $data)
     {
         return user::create([
-            'name'-> $data['name'],
-            'email'-> $data['email'],
-            'password'-> hash::make($data['password'])
+            'name'=> $data['name'],
+            'email'=> $data['email'],
+            'password'=> Hash::make($data['password'])
         ]);
     }
     public function dashboard()
     {
-        if(auth::check()){
-            return view(view:dashboard);
+        if(Auth::check()){
+            return view('dashboard');
         }
         return redirect(to:"Login")->withsuccess('no tienes acesso a esta seccion');
     }

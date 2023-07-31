@@ -15,14 +15,14 @@
         <ul class="navbar-nav">
             @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{route('login)}}">Iniciar Session</a>
+                <a class="nav-link" href="{{ route('register.user')}}">Registrate</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('register-user)}}">Registrate</a>
+                <a class="nav-link" href="{{route("Register.user")}}">Registrate</a>
             </li>
             @else
             <li class="nav-item">
-                <a class="nav-link" href="{{route('signout')}}">Salir</a>
+                <a class="nav-link" href="{{ route('sigout')}}">Salir</a>
             </li>
             @endguest
         </ul>

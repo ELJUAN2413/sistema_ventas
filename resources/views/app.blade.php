@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getlocale()}}">
+<html lang="{{ str_replace('_', '-', app()->getlocale())}}">
 
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,7 @@
 
   <meta name="csrf-token" content="{{csrf_token()}}">
 
-  <tittle>{{ config('app.name', 'laravel')}}</tittle>
+  <title>{{ config('app.name', 'laravel')}}</title>
 
 
   <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -21,10 +21,10 @@
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
-        <a>"class=navbar-brand" href="{{ url('/')}}">
+        <a class=navbar-brand href="{{ url('/')}}">
           {{config('app.name', 'laravel')}}
         </a>
-        <button>
+        <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -42,14 +42,14 @@
           </ul>
           <ul class="navbar-nav ms-auto">
             @guest
-            @if (route::has('login'))
-            <li class="nav-item" <a class="nav-link" href="{{ route('register-user')">{{__(register)}}</a>
+            @if (Route::has("login"))
+            <li class="nav-item"><a class="nav-link" href="{{ route("register.user")}}">{{__("register")}}</a>
 </li>
 @endif
 
-@if(route::has('register-user'))
+@if(Route::has("register-user"))
 <li class=" nav-item">
-              <a class="nav-link" href="{{route(register-user)}}">{{__('register')}}</a>
+              <a class="nav-link" href='{{route("register.user")}}'>{{__("register")}}</a>
             </li>
             @endif
             @else
