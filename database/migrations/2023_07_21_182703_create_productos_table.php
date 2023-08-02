@@ -16,15 +16,15 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',30);
-            $table->string('descripcion',100);
+            $table->string('precio',100);
 
-            
+
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('proveedor_id')->unsigned();
-            
+
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');
+
 
 
             $table->timestamps();

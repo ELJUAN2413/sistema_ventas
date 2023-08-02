@@ -26,7 +26,7 @@
 </div>
 <div style="margin-bottom: 1em;">
 <label for="category_id">category</label>
-<select name="category-id" id="category_id">
+<select name="category_id" id="category_id">
 <option  value="">select</option>
 @foreach($categories as $category)
 <option

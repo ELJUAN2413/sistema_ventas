@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('factura', function (Blueprint $table) {
             $table->id();
-            $table->date('facha');
+            $table->date('fecha');
             $table->string('productos',50);
             $table->string('direccion',50);
-            
+
             $table->bigInteger('empleados_id')->unsigned();
-            
+
             $table->foreign('empleados_id')->references('id')->on('empleados')->ondelete('cascade');
             $table->timestamps();
         });
