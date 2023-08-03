@@ -25,11 +25,11 @@ return new class extends Migration
 
             $table->bigInteger('ciudad_id')->unsigned();
             $table->bigInteger('pais_id')->unsigned();
-            $table->bigInteger('departamento_id')->unsigned();
+            $table->bigInteger('departamentos_id')->unsigned();
 
             $table->foreign('ciudad_id')->references('id')->on('ciudad')->ondelete('cascade');
             $table->foreign('pais_id')->references('id')->on('pais')->ondelete('cascade');
-            $table->foreign('departamento_id')->references('id')->on('departamento')->ondelete('cascade');
+            $table->foreign('departamentos_id')->references('id')->on('departamentos')->ondelete('cascade');
 
 
             $table->timestamps();

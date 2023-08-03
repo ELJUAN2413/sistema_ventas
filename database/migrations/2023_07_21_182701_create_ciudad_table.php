@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',30);
 
-            $table->bigInteger('departamento_id')->unsigned();
-            
-            $table->foreign('departamento_id')->references('id')->on('departamento')->ondelete('cascade');
+            $table->bigInteger('departamentos_id')->unsigned();
+
+            $table->foreign('departamentos_id')->references('id')->on('departamentos')->ondelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         return view('categories.index',[
-            'categories'-> category::paginate()
+            'categories'=> category::paginate()
         ]);
     }
 
@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function store (request $request)
     {
-        $date= $request->validate([
+        $data= $request->validate([
             'name'=> 'required|max:255',
             'description'=> 'required|mas:255'
         ]);
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return back->('message', 'category deleted.');
+        return back()->with('message', 'category deleted.');
     }
 }
 

@@ -15,17 +15,17 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($departamento as key->$departamento)
+        @forelse($departamentos as $key->$departamento)
         <tr>
-            <td>{{$departamento->firstitem()+ key}}.</td>
+            <td>{{$departamentos->firstitem()+ key}}.</td>
             <td>{{$departamento->name}}</td>
             <td>
                 {{$departamento->pais->name}}
             </td>
             <td>
-                <a href="{{route('departamento.edit', $departamento)}}">edit</a>
+                <a href="{{route('departamentos.edit', $departamento)}}">edit</a>
 
-                <form action="{{route('departamento.delete', $departamento)}}" method="post">
+                <form action="{{route('departamentos.delete', $departamento)}}" method="post">
                     @csrf
                     <button type="submit">delete</button>
                 </form>

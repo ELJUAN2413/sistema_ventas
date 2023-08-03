@@ -20,7 +20,7 @@ return new class extends Migration
 
 
             $table->bigInteger('category_id')->unsigned();
-            $table->bigInteger('proveedor_id')->unsigned();
+
 
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

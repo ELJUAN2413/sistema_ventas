@@ -16,11 +16,11 @@
     </tr>
   </thead>
   <tbody>
-    @forelse($categories as key-> $category)
+    @forelse($categories as $key => $category)
     <tr>
       <td>{{$categories->firstitem() + $key}}.</td>
-      <td>{{$categories->description}}</td>
-      <td>{{$categories->created_at->format('f d,y')}}</td>
+      <td>{{$category->description}}</td>
+      <td>{{$category->created_at->format('f d,y')}}</td>
       <td>
         <a href="{{ route('categories.edit', $category)}}">edit</a>
 

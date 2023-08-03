@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use illuminate\http\request;
-use App\Models\category;
 use App\Models\Product;
+use App\Models\Category;
 
 
 
@@ -11,51 +11,49 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('Products.index',[
-            'Product'=> Product::paginate()
+        return view('product.index',[
+            'product'=> Product::paginate()
         ]);
     }
+
     public function create()
     {
-        $categories = category::orderby('name')->get();
-        return view('products.create', compact('categories'));
+        return view('product.create');
     }
-    public function store(request $request)
-    {
-        $data = $request->validate([
-            'name' => "required|max:255",
-            'price' => 'required|regex/^\d{1,13}(\d{1,4})?$\|gt:0',
-            'category_id ' => 'required|integer',
-        ]);
 
-        product::create($data);
-
-        return back()->with('message', 'product created.');
-    }
-    public function edit(Product $product)
+    public function store (request $request)
     {
-        $categories = category::orderby('name')->get();
-        return view('products.edit', compact('product'));
-    }
-    public function update (product $product, request $request)
-    {
-        $data = $request->validate([
-            'name' => 'required|max:255',
-            'price' => 'required|regex/^\d{1,13}(\d{1,4})?$\|gt:0',
+        $data= $request->validate([
+            'name'=> 'required|max:255',
+            'price'=> 'required|regex:/^\d{1,13}(\.\d{1,4})?$/|gt:0',
             'category_id' => 'required|integer',
         ]);
 
         Product::create($data);
 
-        return back->with('mesage', 'product created.');
+        return back()->with('message','product created successfully');
 
-
-        return back()->with('message', 'product updated.');
     }
-    public function destroy(product $product)
+    public function edit(Product $product)
+    {
+        return view('product.edit', compact('product'));
+    }
+    public function update(Product $product, request $request)
+    {
+        $data = $request->validate([
+            'nombre'=> 'required|max::255',
+            'price'=> 'required|max:255',
+            'category_id' => 'required|integer',
+        ]);
+        $product->update($data);
+
+        return back()->with('message', 'product update.');
+    }
+    public function destroy(Product $product)
     {
         $product->delete();
 
         return back()->with('message', 'product deleted.');
     }
 }
+
