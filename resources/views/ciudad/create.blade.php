@@ -21,7 +21,7 @@
         <label for="departamento_id">departamento</label>
         <select name="departamento_id" id="departamento_id">
             <option value="">select</option>
-            @foreach($departamento as $departamento)
+            @foreach($departamentos as $departamento)
             <option>
                 @if ($departamento->id = (int)old('departamento_id'))
                 selected

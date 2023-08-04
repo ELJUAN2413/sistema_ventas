@@ -9,14 +9,14 @@ class DepartamentoController extends Controller
 {
     public function index()
     {
-        return view('departamento.index',[
-            'departamentos'=> Departamento::paginate()
+        return view('departamentos.index',[
+            'departamentos'=> departamento::paginate()
         ]);
     }
 
     public function create()
     {
-        return view('departamento.create');
+        return view('departamentos.create');
     }
 
     public function store (request $request)
@@ -26,29 +26,29 @@ class DepartamentoController extends Controller
             'pais_id'=>'required|integer',
         ]);
 
-        Departamento::create($data);
+        departamento::create($data);
 
-        return back()->with('message','departamentos created successfully');
+        return back()->with('message','departamento created successfully');
 
     }
-    public function edit(Departamento $departamentos)
+    public function edit(departamento $departamentos)
     {
-        return view('departamentos.edit', compact('departamentos'));
+        return view('departamentos.edit', compact('departamento'));
     }
-    public function update(Departamento $departamentos, request $request)
+    public function update(Departamento $departamento, request $request)
     {
         $data = $request->validate([
             'nombre'=> 'required|max::255',
             'pais_id'=>'required|integer',
         ]);
-        $departamentos->update($data);
+        $departamento->update($data);
 
-        return back()->with('message', 'ciudad update.');
+        return back()->with('message', 'departamento update.');
     }
-    public function destroy(Departamento $departamentos)
+    public function destroy(Departamento $departamento)
     {
-        $departamentos->delete();
+        $departamento->delete();
 
-        return back()->with('message', 'ciudad deleted.');
+        return back()->with('message', 'departamento deleted.');
     }
 }

@@ -9,9 +9,8 @@ class Departamento extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pais_id','nombre'];
-
-    public function pais(){
-        return $this->hasMany(Pais::class);
+    protected $fillable = ['nombre'];
+    public function ciudades() {
+        return $this->belongsTo(Ciudad:: class);
     }
 }

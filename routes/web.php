@@ -73,28 +73,28 @@ route::post('/ciudad/delete/{ciudad}',[CiudadController::class,'destroy'])
 
 //departamento
 //muestra categorias
-route::get('/departamento',[DepartamentoController::class,'index'])
-->name('departamento.index');
+route::get('/departamentos',[DepartamentoController::class,'index'])
+->name('departamentos.index');
 
 //formulario categorias
-route::get('/departamento/create', [DepartamentoController::class,'create'])
-->name('departamento.create');
+route::get('/departamentos/create', [DepartamentoController::class,'create'])
+->name('departamentos.create');
 
 //datos formulario categorias
-route::post('/departamento/create',[DepartamentoController::class,'store'])
-->name('departamento.create');
+route::post('/departamentos/create',[DepartamentoController::class,'store'])
+->name('departamentos.create');
 
 //muestra formulario editar una categoria
-route::get('/departamento/edit/{departamento}',[DepartamentoController::class,'edit'])
-->name('departamento.edit');
+route::get('/departamentos/edit/{departamento}',[DepartamentoController::class,'edit'])
+->name('departamentos.edit');
 
 //recibe formulario editar una categoria
-route::post('/departamento/edit/{category}',[CategoryController::class,'update'])
-->name('categories.edit');
+route::post('/departamentos/edit/{departamento}',[DepartamentoController::class,'update'])
+->name('departamentos.edit');
 
 //elimina una categoria por el id
-route::post('/categories/delete/{category}',[CategoryController::class,'destroy'])
-->name('categories.delete');
+route::post('/departamentos/delete/{departamento}',[DepartamentoController::class,'destroy'])
+->name('departamentos.delete');
 
 
 

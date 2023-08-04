@@ -1,5 +1,5 @@
 <div><a href="/">home</a></div>
-<a href="{{route('departamento.create')}}">new departamento</a>
+<a href="{{route('departamentos.create')}}">new departamento</a>
 
 @if(session('message'))
 <div style="color: green;">{{session('message')}}</div>
@@ -10,17 +10,17 @@
         <tr>
             <td>no</td>
             <td>name</td>
-            <td>pais_id</td>
+            <td>pais</td>
+            <td>timestamp</td>
             <td>action</td>
         </tr>
     </thead>
     <tbody>
-        @forelse($departamentos as $key->$departamento)
+        @forelse($departamentos as $key => $departamento)
         <tr>
-            <td>{{$departamentos->firstitem()+ key}}.</td>
+            <td>{{$departamentos->firstitem() + $key}}.</td>
             <td>{{$departamento->name}}</td>
-            <td>
-                {{$departamento->pais->name}}
+
             </td>
             <td>
                 <a href="{{route('departamentos.edit', $departamento)}}">edit</a>

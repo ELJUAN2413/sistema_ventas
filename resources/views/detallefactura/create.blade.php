@@ -28,7 +28,7 @@
         <label for="factura_id">factura</label>
         <select name="factura_id" id="factura_id">
             <option value="">select</option>
-            @foreach($factura as $facturaç)
+            @foreach($facturas as $factura)
             <option>
                 @if ($factura->id = (int)old('factura_id'))
                 selected

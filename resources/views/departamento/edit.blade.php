@@ -24,7 +24,7 @@
 <option  value="">select</option>
 @foreach($pais as $pais)
 <option
-@if ($pais->===(int)$departamento->pais_id)
+@if ($pais->===(int)$departamentos->pais_id)
 selected
 @endif
 value="{{$pais->id}}">{{$pais->name}}</option>

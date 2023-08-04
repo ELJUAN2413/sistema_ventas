@@ -15,12 +15,12 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($ciudad as key->$ciudad)
+        @forelse($ciudades as key->$ciudad)
         <tr>
-            <td>{{$ciudad->firstitem()+ key}}.</td>
+            <td>{{$ciudades->firstitem()+ key}}.</td>
             <td>{{$ciudad->name}}</td>
             <td>
-                {{$ciudad->departamento->name}}
+                {{$ciudades->departamento->name}}
             </td>
             <td>
                 <a href="{{route('ciudad.edit', $ciudad)}}">edit</a>

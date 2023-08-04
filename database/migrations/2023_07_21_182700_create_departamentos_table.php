@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',30);
 
-            $table->bigInteger('pais_id')->unsigned();
 
-            $table->foreign('pais_id')->references('id')->on('pais')->ondelete('cascade');
             $table->timestamps();
         });
     }
