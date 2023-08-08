@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('factura', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
-            $table->string('productos',50);
-            $table->string('direccion',50);
-
-            $table->bigInteger('empleados_id')->unsigned();
-
-            $table->foreign('empleados_id')->references('id')->on('empleados')->ondelete('cascade');
+            $table->string('nombre',100);
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('factura');
+        Schema::dropIfExists('categories');
     }
 };
