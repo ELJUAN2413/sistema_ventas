@@ -4,6 +4,9 @@ use App\Http\Controllers\CiudadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\DetallefacturaController;
@@ -48,53 +51,78 @@ route::post('/categories/delete/{category}',[CategoryController::class,'destroy'
 
 //ciudad
 //muestra categorias
-route::get('/ciudad',[CiudadController::class,'index'])
-->name('ciudad.index');
+route::get('/cities',[CityController::class,'index'])
+->name('cities.index');
 
 //formulario categorias
-route::get('/ciudad/create', [CiudadController::class,'create'])
-->name('ciudad.create');
+route::get('/cities/create', [CityController::class,'create'])
+->name('cities.create');
 
 //datos formulario categorias
-route::post('/ciudad/create',[CiudadController::class,'store'])
-->name('ciudad.create');
+route::post('/cities/create',[CityController::class,'store'])
+->name('cities.create');
 
 //muestra formulario editar una categoria
-route::get('/ciudad/edit/{ciudad}',[CiudadController::class,'edit'])
-->name('ciudad.edit');
+route::get('/cities/edit/{city}',[CityController::class,'edit'])
+->name('cities.edit');
 
 //recibe formulario editar una categoria
-route::post('/ciudad/edit/{ciudad}',[CiudadController::class,'update'])
-->name('ciudad.edit');
+route::post('/cities/edit/{city}',[CityController::class,'update'])
+->name('cities.edit');
 
 //elimina una categoria por el id
-route::post('/ciudad/delete/{ciudad}',[CiudadController::class,'destroy'])
-->name('ciudad.delete');
+route::post('/cities/delete/{city}',[CityController::class,'destroy'])
+->name('cities.delete');
 
 //departamento
 //muestra categorias
-route::get('/departamentos',[DepartamentoController::class,'index'])
-->name('departamentos.index');
+route::get('/departaments',[DepartamentController::class,'index'])
+->name('departaments.index');
 
 //formulario categorias
-route::get('/departamentos/create', [DepartamentoController::class,'create'])
-->name('departamentos.create');
+route::get('/departaments/create', [DepartamentController::class,'create'])
+->name('departaments.create');
 
 //datos formulario categorias
-route::post('/departamentos/create',[DepartamentoController::class,'store'])
-->name('departamentos.create');
+route::post('/departaments/create',[DepartamentController::class,'store'])
+->name('departaments.create');
 
 //muestra formulario editar una categoria
-route::get('/departamentos/edit/{departamento}',[DepartamentoController::class,'edit'])
-->name('departamentos.edit');
+route::get('/departaments/edit/{departament}',[DepartamentController::class,'edit'])
+->name('departaments.edit');
 
 //recibe formulario editar una categoria
-route::post('/departamentos/edit/{departamento}',[DepartamentoController::class,'update'])
-->name('departamentos.edit');
+route::post('/departaments/edit/{departament}',[DepartamentoController::class,'update'])
+->name('departaments.edit');
 
 //elimina una categoria por el id
-route::post('/departamentos/delete/{departamento}',[DepartamentoController::class,'destroy'])
-->name('departamentos.delete');
+route::post('/departaments/delete/{departament}',[DepartamentController::class,'destroy'])
+->name('departaments.delete');
+
+//clientes
+//muestra categorias
+route::get('/clients',[ClientController::class,'index'])
+->name('clients.index');
+
+//formulario categorias
+route::get('/clients/create', [ClientController::class,'create'])
+->name('clients.create');
+
+//datos formulario categorias
+route::post('/clients/create',[ClientController::class,'store'])
+->name('clients.create');
+
+//muestra formulario editar una categoria
+route::get('/clients/edit/{client}',[ClientController::class,'edit'])
+->name('clients.edit');
+
+//recibe formulario editar una categoria
+route::post('/clients/edit/{client}',[ClientController::class,'update'])
+->name('clients.edit');
+
+//elimina una categoria por el id
+route::post('/clients/delete/{client}',[ClientController::class,'destroy'])
+->name('clients.delete');
 
 
 

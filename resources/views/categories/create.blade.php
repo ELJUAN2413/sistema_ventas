@@ -16,7 +16,7 @@
 @enderror
 </div>
 <div style="margin-bottom:: 1em;">
-<label for="description">Description</label>
+<label for="departament">Description</label>
 <input type="text" name="description" id="description" placeholder="Enter description">
 @error('description')
 <div style="color: red;">{{ $message }}</div>
