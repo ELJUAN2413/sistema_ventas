@@ -1,38 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\City;
-use App\Models\Client;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
-        return view('clients.index', [
-            'clients' => Client::paginate()
+        return view('products.index', [
+            'products' => Product::paginate()
         ]);
     }
     public function create()
     {
-        $cities = City::orderBy('nombre')->get();
-        return view('clients.create', compact('cities'));
+        $categories =Category::orderBy('nombre')->get();
+        return view('products.create', compact('categories'));
     }
     public function store(Request $request)
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
-            'cities_id'=>'required|integer',
-            'cedula'=>'required|integer',
-            'correo'=>'required|string',
-            'telefono'=>'required|integer',
-            'direccion'=>'required|string',
+            'category_id'=>'required|integer',
+            'precio'=>'required|integer',
         ]);
 
 
-        Client::create($data);
+        Product::create($data);
 
-        return back()->with('message', 'Client created successfully');
+        return back()->with('message', 'product created successfully');
     }
     public function edit(Client $client)
     {

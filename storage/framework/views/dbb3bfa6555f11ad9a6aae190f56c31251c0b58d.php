@@ -8,7 +8,7 @@
 <?php endif; ?>
 <form action="<?php echo e(route('departaments.create')); ?>" method="post">
 <?php echo csrf_field(); ?>
-<div style="margint-bottom: 1em;">
+<div style="margin-bottom: 1em;">
 <label for="nombre">nombre</label>
 <input type="text" name="nombre" id="nombre" placeholder="Enter category">
 <?php $__errorArgs = ['nombre'];

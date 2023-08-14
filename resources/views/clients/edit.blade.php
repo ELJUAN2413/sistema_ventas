@@ -50,7 +50,7 @@
 <option value="">select</option>
 @foreach ($cities as $city)
 <option
-@if ($city->id === (int)old('cities_id'))
+@if ($city->id === (int)old('city_id'))
 selected
 @endif
 value="{{$city->id}}">{{$city->nombre}}</option>

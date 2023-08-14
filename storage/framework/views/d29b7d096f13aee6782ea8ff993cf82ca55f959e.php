@@ -13,6 +13,7 @@
 <td>correo</td>
 <td>telefono</td>
 <td>direccion</td>
+<td>cities</td>
 <td>Timestamp</td>
 <td>Action</td>
 </tr>
@@ -22,6 +23,11 @@
 <tr>
 <td><?php echo e($clients->firstItem() + $key); ?>.</td>
 <td><?php echo e($client->nombre); ?></td>
+<td><?php echo e($client->cedula); ?></td>
+<td><?php echo e($client->correo); ?></td>
+<td><?php echo e($client->telefono); ?></td>
+<td><?php echo e($client->direccion); ?></td>
+
 <td><?php echo e($client->created_at->format('F d, Y')); ?></td>
 <td>
 <a href="<?php echo e(route('clients.edit', $client)); ?>">Edit</a>

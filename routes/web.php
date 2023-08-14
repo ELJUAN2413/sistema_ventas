@@ -110,7 +110,7 @@ route::get('/clients/create', [ClientController::class,'create'])
 
 //datos formulario categorias
 route::post('/clients/create',[ClientController::class,'store'])
-->name('clients.create');
+->name('clients.store');
 
 //muestra formulario editar una categoria
 route::get('/clients/edit/{client}',[ClientController::class,'edit'])

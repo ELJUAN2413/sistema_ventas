@@ -13,6 +13,7 @@
 <td>correo</td>
 <td>telefono</td>
 <td>direccion</td>
+<td>cities</td>
 <td>Timestamp</td>
 <td>Action</td>
 </tr>
@@ -22,6 +23,11 @@
 <tr>
 <td>{{ $clients->firstItem() + $key }}.</td>
 <td>{{ $client->nombre }}</td>
+<td>{{ $client->cedula }}</td>
+<td>{{ $client->correo }}</td>
+<td>{{ $client->telefono }}</td>
+<td>{{ $client->direccion }}</td>
+
 <td>{{ $client->created_at->format('F d, Y') }}</td>
 <td>
 <a href="{{ route('clients.edit', $client) }}">Edit</a>
