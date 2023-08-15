@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\DetallefacturaController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\PaisController;
 use App\Http\Controllers\ProductosController;
@@ -124,18 +125,6 @@ route::post('/clients/edit/{client}',[ClientController::class,'update'])
 route::post('/clients/delete/{client}',[ClientController::class,'destroy'])
 ->name('clients.delete');
 
-
-
-
-
-
-
-
-
-
-
-
-
 //1 productos
 route::get('/products',[ProductController::class,'index'])
 ->name('products.index');
@@ -146,7 +135,7 @@ route::get('/products/create', [ProductController::class,'create'])
 
 //
 route::post('/products/create',[ProductController::class,'store'])
-->name('products.create');
+->name('products.store');
 
 //
 route::get('/products/edit/{category}',[ProductController::class,'edit'])
@@ -159,6 +148,30 @@ route::post('/products/edit/{product}',[ProductController::class,'update'])
 //
 route::post('/products/delete/{product}',[ProductController::class,'destroy'])
 ->name('products.delete');
+
+//employees
+//1  emplo
+route::get('/employees',[EmployeeController::class,'index'])
+->name('employees.index');
+
+route::get('/employees/create', [EmployeeController::class,'create'])
+->name('employees.create');
+
+//
+route::post('/employees/create',[EmployeeController::class,'store'])
+->name('employees.store');
+
+//
+route::get('/employees/edit/{employee}',[EmployeeController::class,'edit'])
+->name('employees.edit');
+
+//
+route::post('/employees/edit/{employee}',[EmployeeController::class,'update'])
+->name('employees.edit');
+
+//
+route::post('/employees/delete/{employee}',[EmployeeController::class,'destroy'])
+->name('employees.delete');
 
 
 

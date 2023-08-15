@@ -23,7 +23,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
 </div>
 <div style="margin-bottom:: 1em;">
-<label for="description">Description</label>
+<label for="departament">Description</label>
 <input type="text" name="description" id="description" placeholder="Enter description">
 <?php $__errorArgs = ['description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

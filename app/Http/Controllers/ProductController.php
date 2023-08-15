@@ -31,30 +31,27 @@ class ProductController extends Controller
 
         return back()->with('message', 'product created successfully');
     }
-    public function edit(Client $client)
+    public function edit(Product $product)
     {
-        $cities = City::orderBy('nombre','cedula','correo','telefono','direccion')->get();
-        return view('clients.edit', compact('cities'));
+        $categories = Category::orderBy('nombre','precio')->get();
+        return view('products.edit', compact('categories'));
     }
-    public function update(Client $client, Request $request)
+    public function update(Product $product, Request $request)
     {
         $data = $request->validate([
             'nombre' => 'required|max:255',
-            'cities_id'=>'required|integer',
-            'cedula'=>'required|integer',
-            'correo'=>'required|string',
-            'telefono'=>'required|integer',
-            'direccion'=>'required|strign',
+            'category_id'=>'required|integer',
+            'precio'=>'required|integer',
         ]);
 
-        Client::update($data);
+        Product::update($data);
 
         return back()->with('message', 'Client updated');
     }
-    public function destroy(Client $client)
+    public function destroy(Product $product)
     {
-        $client->delete();
+        $product->delete();
 
-        return back()->with('message', 'Client deleted');
+        return back()->with('message', 'product deleted');
     }
 }
