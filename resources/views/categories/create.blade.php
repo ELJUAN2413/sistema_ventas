@@ -7,6 +7,7 @@
 <div style="color: gree;">{{ session('message') }}</div>
 @endif
 <form action="{{ route('categories.create') }}" method="post">
+
 @csrf
 <div style="margint-bottom: 1em;">
 <label for="nombre">nombre</label>

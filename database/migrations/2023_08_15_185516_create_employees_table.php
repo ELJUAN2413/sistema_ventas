@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cities_id')->constrained()->onDelete('cascade');
-            $table->bigInteger('departament_id')->constrained()->onDelete('cascade');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('cedula');

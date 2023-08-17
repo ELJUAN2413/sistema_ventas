@@ -1,12 +1,12 @@
 <div style="margin-bottom: 1em;">
     <a href="{{ route('employees.index') }}">employee List</a>
   </div>
-  city
+employee
   <h1>Create employee</h1>
   @if(session('message'))
   <div style="color: green;">{{ session('message') }}</div>
   @endif
-  <form action="{{ route('employees.store') }}" method="POST">
+  <form action="{{ route('employees.create') }}" method="POST">
     @csrf
     <div style="margin-bottom: 1em;">
       <label for="nombre">nombre</label>
@@ -58,27 +58,22 @@
         @enderror
       </div>
     <div style="margin-bottom: 1em;">
-      <label for="citiesy_id">city</label>
-      <select name="cities_id" id="city_id">
+      <label for="cities_id">city</label>
+      <select name="cities_id" id="cities_id">
         <option value="">select</option>
         @foreach ($cities as $city)
-        <option @if ($city->id === (int)old('city_id'))
+        <option
+        @if ($city->id === (int)old('cities_id'))
           selected
           @endif
           value="{{$city->id}}">{{$city->nombre}}</option>
         @endforeach
       </select>
-      @error('city_id')
+      @error('cities_id')
       <div style="color: red;">{{ $message }}</div>
       @enderror
     </div>
 
-        </select>
-        @error('departaments_id')
-        <div style="color: red;">{{ $message }}</div>
-        @enderror
-      </div>
-    <div>
       <button type="submit">Submit</button>
     </div>
   </form>

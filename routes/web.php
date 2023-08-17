@@ -110,7 +110,7 @@ route::get('/clients/create', [ClientController::class,'create'])
 ->name('clients.create');
 
 //datos formulario categorias
-route::post('/clients/create',[ClientController::class,'store'])
+route::post('/clients/store',[ClientController::class,'store'])
 ->name('clients.store');
 
 //muestra formulario editar una categoria
@@ -138,7 +138,7 @@ route::post('/products/create',[ProductController::class,'store'])
 ->name('products.store');
 
 //
-route::get('/products/edit/{category}',[ProductController::class,'edit'])
+route::get('/products/edit/{product}',[ProductController::class,'edit'])
 ->name('products.edit');
 
 //
@@ -162,15 +162,14 @@ route::post('/employees/create',[EmployeeController::class,'store'])
 ->name('employees.store');
 
 //
-route::get('/employees/edit/{employee}',[EmployeeController::class,'edit'])
+
+
+//
+route::get('/employees/edit/{employee}',[EmployeeController::class,'edti'])
 ->name('employees.edit');
 
 //
-route::post('/employees/edit/{employee}',[EmployeeController::class,'update'])
-->name('employees.edit');
-
-//
-route::post('/employees/delete/{employee}',[EmployeeController::class,'destroy'])
+route::post('/employees/delete/{employee}',[EmployeeController::class,'delete'])
 ->name('employees.delete');
 
 

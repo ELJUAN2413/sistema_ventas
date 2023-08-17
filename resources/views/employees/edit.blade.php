@@ -6,7 +6,7 @@
 @if(session('message'))
 <div style="color: green;">{{ session('message') }}</div>
 @endif
-<form action="{{ route('employees.edit', $employee) }}" method="post">
+<form action="{{ route('employees.update', $employee) }}" method="get">
 @csrf
 <div style="margin-bottom: 1em;">
     <label for="nombre">nombre</label>
@@ -71,22 +71,7 @@
     @error('city_id')
     <div style="color: red;">{{ $message }}</div>
     @enderror
-  </div>
-  <div style="margin-bottom: 1em;">
-      <label for="departaments_id">departament</label>
-      <select name="departaments_id" id="departaments_id">
-        <option value="">select</option>
-        @foreach ($departaments as $departament)
-        <option @if ($departament->id === (int)old('departaments_id'))
-          selected
-          @endif
-          value="{{$departament->id}}">{{$departament->nombre}}</option>
-        @endforeach
-      </select>
-      @error('departaments_id')
-      <div style="color: red;">{{ $message }}</div>
-      @enderror
-    </div>
+
   <div>
     <button type="submit">Submit</button>
   </div>

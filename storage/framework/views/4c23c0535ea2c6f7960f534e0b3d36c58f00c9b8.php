@@ -7,6 +7,7 @@
 <div style="color: gree;"><?php echo e(session('message')); ?></div>
 <?php endif; ?>
 <form action="<?php echo e(route('categories.create')); ?>" method="post">
+
 <?php echo csrf_field(); ?>
 <div style="margint-bottom: 1em;">
 <label for="nombre">nombre</label>

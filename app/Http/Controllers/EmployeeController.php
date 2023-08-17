@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\City;
-use App\Models\Departament;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -18,15 +17,10 @@ class EmployeeController extends Controller
     {
         $cities =City::orderBy('nombre')->get();
         return view('employees.create', compact('cities'));
-
-        $departaments =Departament::orderBy('nombre')->get();
-        return view('employees.create', compact('departaments'));
     }
     public function store(Request $request)
     {
         $data = $request->validate([
-            'cities_id'=>'required|integer',
-            'departament_id'=>'required|integer',
             'nombre'=>'required|max:255',
             'apellido'=>'required|max:255',
             'cedula'=>'required|integer',
@@ -34,6 +28,7 @@ class EmployeeController extends Controller
             'telefono'=>'required|integer',
             'direccion'=>'required|max:255',
             'cargo'=>'required|max:255',
+            'cities_id'=>'required|integer',
         ]);
 
 
@@ -44,16 +39,12 @@ class EmployeeController extends Controller
     public function edit(Employee $employees)
     {
         $cities =City::orderBy('nombre')->get();
-        return view('employees.create', compact('cities'));
+        return view('employees.edit', compact('cities'));
 
-        $departaments =Departament::orderBy('nombre')->get();
-        return view('employees.create', compact('departaments'));
     }
     public function update(Employee $employees, Request $request)
     {
         $data = $request->validate([
-            'cities_id'=>'required|integer',
-            'departament_id'=>'required|integer',
             'nombre'=>'required|max:255',
             'apellido'=>'required|max:255',
             'cedula'=>'required|integer',
@@ -61,6 +52,7 @@ class EmployeeController extends Controller
             'telefono'=>'required|integer',
             'direccion'=>'required|max:255',
             'cargo'=>'required|max:255',
+            'cities_id'=>'required|integer',
         ]);
 
         Employee::update($data);
