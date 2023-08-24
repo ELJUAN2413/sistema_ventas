@@ -5,6 +5,7 @@ use App\Models\City;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
+
 class EmployeeController extends Controller
 {
     public function index()

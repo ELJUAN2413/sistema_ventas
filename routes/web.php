@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
@@ -171,6 +172,30 @@ route::get('/employees/edit/{employee}',[EmployeeController::class,'edti'])
 //
 route::post('/employees/delete/{employee}',[EmployeeController::class,'delete'])
 ->name('employees.delete');
+
+////////////////////////////
+route::get('/customers',[CustomerController::class,'index'])
+->name('customers.index');
+
+//
+route::get('/customers/create', [CustomerController::class,'create'])
+->name('customers.create');
+
+//
+route::post('/customers/create',[CustomerController::class,'store'])
+->name('customers.store');
+
+//
+route::get('/customers/edit/{customer}',[CustomerController::class,'edit'])
+->name('customers.edit');
+
+//
+route::post('/customers/edit/{customer}',[CustomerController::class,'update'])
+->name('customers.edit');
+
+//
+route::post('/customers/delete/{customer}',[CustomerController::class,'destroy'])
+->name('customers.delete');
 
 
 
