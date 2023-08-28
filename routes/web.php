@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\CiudadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartamentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DepartamentoController;
+use App\Http\Controllers\DetailInvoiceController;
 use App\Http\Controllers\DetallefacturaController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EmployeeController;
@@ -197,6 +199,56 @@ route::post('/customers/edit/{customer}',[CustomerController::class,'update'])
 route::post('/customers/delete/{customer}',[CustomerController::class,'destroy'])
 ->name('customers.delete');
 
+
+
+//bills
+route::get('/bills',[BillController::class,'index'])
+->name('bills.index');
+
+//
+route::get('/bills/create', [BillController::class,'create'])
+->name('bills.create');
+
+//
+route::post('/bills/create',[BillController::class,'store'])
+->name('bills.store');
+
+//
+route::get('/bills/edit/{bill}',[BillController::class,'edit'])
+->name('bills.edit');
+
+//
+route::post('/bills/edit/{bill}',[BillController::class,'update'])
+->name('bills.edit');
+
+//
+route::post('/bills/delete/{bill}',[BillController::class,'destroy'])
+->name('bills.delete');
+
+//detail__invoices
+
+route::get('/detail__invoices',[DetailInvoiceController::class,'index'])
+->name('detail__invoices.index');
+
+//
+route::get('/detail__invoices/create', [DetailInvoiceController::class,'create'])
+->name('detail__invoices.create');
+
+//
+route::post('/detail__invoices/create',[DetailInvoiceController::class,'store'])
+->name('detail__invoices.store');
+
+//
+route::get('/detail__invoices/edit/{detail__invoice}',[DetailInvoiceController::class,'edit'])
+->name('detail__invoices.edit');
+
+//
+route::post('/detail__invoices/edit/{bildetail__invoicel}',[DetailInvoiceController::class,'update'])
+->name('detail__invoices.edit');
+
+//
+route::post('/detail__invoices/delete/{detail__invoice}',[DetailInvoiceController::class,'destroy'])
+->name('detail__invoices.delete');
 
 
 
