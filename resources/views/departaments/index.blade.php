@@ -22,7 +22,7 @@
 <td>
 <a href="{{ route('departaments.edit', $departament) }}">Edit</a>
 
-<form Action="{{ route('departaments.delete', $departament) }}" method="post"
+<form Action="{{ route('departaments.delete', $departament) }}" method="post">
 @csrf
 <button type="submit">Delete</button>
 </form>

@@ -1,22 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Bill;
-use App\Models\Detail_Invoice;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Models\Bill;
+use App\Models\DetailInvoice;
 class DetailInvoiceController extends Controller
 {
     public function index()
     {
-        return view('detail__invoices.index', [
-            'detail__invoices' => Detail_Invoice::paginate()
+        return view('detail_invoices.index', [
+            'detail_invoices' => DetailInvoice::paginate()
         ]);
     }
     public function create()
     {
         $bills =Bill::orderBy('nombre')->get();
-        return view('detail__invoices.create', compact('bills'));
+        return view('detail_invoices.create', compact('bills'));
     }
     public function store(Request $request)
     {
@@ -27,17 +27,17 @@ class DetailInvoiceController extends Controller
         ]);
 
 
-        Detail_Invoice::create($data);
+        DetailInvoice::create($data);
 
-        return back()->with('message', 'detail__invoices created successfully');
+        return back()->with('message', 'detail_invoices created successfully');
     }
-    public function edit(Detail_Invoice $detail__invoices)
+    public function edit(DetailInvoice $detail_invoices)
     {
         $bills =Bill::orderBy('nombre')->get();
-        return view('detail__invoices.create', compact('bills'));
+        return view('detail_invoices.create', compact('bills'));
 
     }
-    public function update(Detail_Invoice $detail__invoices, Request $request)
+    public function update(DetailInvoice $detail_invoices, Request $request)
     {
         $data = $request->validate([
             'cantidad'=>'required|max:255',
@@ -45,15 +45,14 @@ class DetailInvoiceController extends Controller
             'bills_id'=>'required|integer',
         ]);
 
-        Detail_Invoice::update($data);
+        DetailInvoice::update($data);
 
-        return back()->with('message', 'detail__invoices updated');
+        return back()->with('message', 'detail_invoices updated');
     }
-    public function destroy(Detail_Invoice $detail__invoices)
+    public function destroy(DetailInvoice $detail_invoices)
     {
-        $detail__invoices->delete();
+        $detail_invoices->delete();
 
-        return back()->with('message', 'detail__invoices deleted');
+        return back()->with('message', 'detail_invoices deleted');
     }
 }
-

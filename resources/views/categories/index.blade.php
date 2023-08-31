@@ -2,31 +2,30 @@
 <a href="{{ route('categories.create') }}">New Category</a>
 
 @if(session('message'))
-<div style="color: green;">{{ session('message') }}</div>
+    <div style="color: green;">{{ session('message') }}</div>
 @endif
 <table eellpadding="10" eellspacing="1" border="1">
-<thead>
-<tr>
-<td>No.</td>
-<td>nombre</td>
-<td>Description</td>
-<td>Timestamp</td>
-<td>Action</td>
-</tr>
-</thead>
-<tbody>
-@forelse($categories as $key => $category)
-<tr>
-<td>{{ $categories->firstItem() + $key }}.</td>
-<td>{{ $category->nombre }}</td>
-<td>{{ $category->description }}</td>
-<td>{{ $category->created_at->format('F d, Y') }}</td>
-<td>
-<a href="{{ route('categories.edit', $category) }}">Edit</a>
-
-<form Action="{{ route('categories.delete', $category) }}" method="post"
-@csrf
-<button type="submit">Delete</button>
+    <thead>
+    <tr>
+        <td>No.</td>
+        <td>nombre</td>
+        <td>Description</td>
+        <td>Timestamp</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    @forelse($categories as $key => $category)
+    <tr>
+        <td>{{ $categories->firstItem() + $key }}.</td>
+        <td>{{ $category->nombre }}</td>
+        <td>{{ $category->description }}</td>
+        <td>{{ $category->created_at->format('F d, Y') }}</td>
+        <td>
+            <a href="{{ route('categories.edit', $category) }}">Edit</a>
+            <form Action="{{ route('categories.delete', $category) }}" method="post">
+                @csrf
+        <button type="submit">Delete</button>
 </form>
 </td>
 </tr>

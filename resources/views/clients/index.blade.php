@@ -32,7 +32,7 @@
 <td>
 <a href="{{ route('clients.edit', $client) }}">Edit</a>
 
-<form Action="{{ route('clients.delete', $client) }}" method="post"
+<form Action="{{ route('clients.delete', $client) }}" method="post">
 @csrf
 <button type="submit">Delete</button>
 </form>

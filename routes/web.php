@@ -29,29 +29,22 @@ route::post('custom-registration',[CustomAuthController::class, 'customregistrat
 route::get('sigout',[CustomAuthController::class, 'sigout'])->name('sigout');
 
 
-//muestra categorias
-route::get('/categories',[CategoryController::class,'index'])
-->name('categories.index');
+route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
 
 //formulario categorias
-route::get('/categories/create', [CategoryController::class,'create'])
-->name('categories.create');
+route::get('/categories/create', [CategoryController::class,'create'])->name('categories.create');
 
 //datos formulario categorias
-route::post('/categories/create',[CategoryController::class,'store'])
-->name('categories.create');
+route::post('/categories/create',[CategoryController::class,'store'])->name('categories.create');
 
 //muestra formulario editar una categoria
-route::get('/categories/edit/{category}',[CategoryController::class,'edit'])
-->name('categories.edit');
+route::get('/categories/edit/{category}',[CategoryController::class,'edit'])->name('categories.edit');
 
 //recibe formulario editar una categoria
-route::post('/categories/edit/{category}',[CategoryController::class,'update'])
-->name('categories.edit');
+route::post('/categories/edit/{category}',[CategoryController::class,'update'])->name('categories.edit');
 
 //elimina una categoria por el id
-route::post('/categories/delete/{category}',[CategoryController::class,'destroy'])
-->name('categories.delete');
+route::post('/categories/delete/{category}',[CategoryController::class,'destroy'])->name('categories.delete');
 
 //ciudad
 //muestra categorias
@@ -227,28 +220,28 @@ route::post('/bills/delete/{bill}',[BillController::class,'destroy'])
 
 //detail__invoices
 
-route::get('/detail__invoices',[DetailInvoiceController::class,'index'])
-->name('detail__invoices.index');
+route::get('/detail_invoices',[DetailInvoiceController::class,'index'])
+->name('detail_invoices.index');
 
 //
-route::get('/detail__invoices/create', [DetailInvoiceController::class,'create'])
-->name('detail__invoices.create');
+route::get('/detail_invoices/create', [DetailInvoiceController::class,'create'])
+->name('detail_invoices.create');
 
 //
-route::post('/detail__invoices/create',[DetailInvoiceController::class,'store'])
-->name('detail__invoices.store');
+route::post('/detail_invoices/create',[DetailInvoiceController::class,'store'])
+->name('detail_invoices.store');
 
 //
-route::get('/detail__invoices/edit/{detail__invoice}',[DetailInvoiceController::class,'edit'])
-->name('detail__invoices.edit');
+route::get('/detail_invoices/edit/{detail_invoice}',[DetailInvoiceController::class,'edit'])
+->name('detail_invoices.edit');
 
 //
-route::post('/detail__invoices/edit/{bildetail__invoicel}',[DetailInvoiceController::class,'update'])
-->name('detail__invoices.edit');
+route::post('/detail_invoices/edit/{detail_invoicel}',[DetailInvoiceController::class,'update'])
+->name('detail_invoices.edit');
 
 //
-route::post('/detail__invoices/delete/{detail__invoice}',[DetailInvoiceController::class,'destroy'])
-->name('detail__invoices.delete');
+route::post('/detail_invoices/delete/{detail_invoice}',[DetailInvoiceController::class,'destroy'])
+->name('detail_invoices.delete');
 
 
 

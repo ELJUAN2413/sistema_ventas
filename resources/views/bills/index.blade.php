@@ -35,7 +35,7 @@
 <td>
 <a href="{{ route('bills.edit', $bill) }}">Edit</a>
 
-<form Action="{{ route('bills.delete', $bill) }}" method="post"
+<form Action="{{ route('bills.delete', $bill) }}" method="post">
 @csrf
 <button type="submit">Delete</button>
 </form>

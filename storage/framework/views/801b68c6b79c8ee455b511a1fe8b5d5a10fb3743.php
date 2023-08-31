@@ -39,7 +39,7 @@
 <td>
 <a href="<?php echo e(route('employees.edit', $employee)); ?>">Edit</a>
 
-<form Action="<?php echo e(route('employees.delete', $employee)); ?>" method="post"
+<form Action="<?php echo e(route('employees.delete', $employee)); ?>" method="post">
 <?php echo csrf_field(); ?>
 <button type="submit">Delete</button>
 </form>
